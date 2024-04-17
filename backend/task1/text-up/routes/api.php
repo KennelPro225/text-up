@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->group(function (){
     Route::controller(ProduitController::class)->prefix("produits")->group(function(){
         Route::post("add","store");
-        Route::post("delete/{id}","delete");
+        Route::delete("delete/{id}","delete");
     });
 
 });

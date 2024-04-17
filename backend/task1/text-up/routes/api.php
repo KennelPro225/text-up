@@ -22,9 +22,9 @@ Route::middleware('auth:sanctum')->group(function (){
         Route::post("delete/{id}","delete");
     });
 
-    Route::controller(UserController::class)->prefix("auth")->group(function(){
-        Route::post("/sign-up", "inscription")->middleware(["guest"]);
-        Route::post("/sign-in", "connexion")->middleware(["guest"]);
-    });
+});
+Route::controller(UserController::class)->prefix("auth")->group(function(){
+    Route::post("/sign-up", "inscription")->middleware(["guest"]);
+    Route::post("/sign-in", "connexion")->middleware(["guest"]);
 });
 

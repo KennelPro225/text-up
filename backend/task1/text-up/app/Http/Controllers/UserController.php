@@ -31,10 +31,9 @@ class UserController extends Controller
      */
     public function connexion(UserLoginRequest $request)
     {
-        if ($request->validated() && empty(auth()->user())) {
+        if (empty(auth()->user())) {
             $user = User::where("email", $request->email)
                 ->first();
-            if ($user->is_checked == True) {
                 if (Auth::attempt(["email" => $request->email, "password" => $request->password])) {
                     $user["token"] = $user->createToken(
                         "API TOKEN",
@@ -48,9 +47,6 @@ class UserController extends Controller
                 }else{
                     return response()->error("Email ou mot de passe incorrect");
                 }
-            } else {
-                return response()->error("Votre compte n'est pas encore confirmé");
-            }
         }
     }
 

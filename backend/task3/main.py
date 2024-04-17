@@ -18,7 +18,8 @@ except Exception as exception:
 class Stats(Resource):
   def get(self):
     cursor = mydb.cursor()
-    cursor.execute("""SELECT
+    cursor.execute("""
+            SELECT
             produits.nom,
             COUNT(*) AS nb_commandes_produit
             FROM commandes

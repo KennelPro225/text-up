@@ -22,9 +22,9 @@ class Stats(Resource):
             SELECT
             produits.nom,
             COUNT(*) AS nb_commandes_produit
-            FROM commandes
+            FROM post_tags
             INNER JOIN produits
-            ON commandes.id_produit = produits.id
+            ON post_tags.id_post = posts.id AND 
             GROUP BY EXTRACT(WEEK FROM commandes.created_at), produits.nom
             ORDER BY nb_commandes_produit DESC
           """)

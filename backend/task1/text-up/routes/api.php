@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\UserController;
+use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -14,6 +17,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+Route::middleware('auth:sanctum')->group(function () {
+    Route::controller(PostController::class)->prefix("articles")->group(function(){
+        Route::post("/ajouter","store");
+        Route::delete("/supprimer/{id}","delete");
+    });
+});
+
+Route::controller(UserController::class)->prefix("auth")->group(function(){
+    Route::post('connexion', "connexion");
+    Route::post('inscription', "inscription");
 });

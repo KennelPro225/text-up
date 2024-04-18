@@ -1,49 +1,60 @@
-const express = require("express");
-const mysql = require('mysql2/promise');
+const express = require('express');
+const mysql = require('mysql2');
 
 const app = express();
-const port = 3000;
+const PORT = 3001;
+
+const cors = require('cors');
+const corsOptions ={
+    origin:'http://localhost:3000',
+    optionSuccessStatus:200
+}
+app.use(cors(corsOptions));
 
 app.use(express.json());
-app.use(
-    express.urlencoded({
-        extended: true,
-    })
-);
 
-const config = {
-    db: {
-        /* don't expose password or any sensitive info, done only for demo */
-        host: "db4free.net",
-        user: "restapitest123",
-        password: "restapitest123",
-        database: "restapitest123",
-        connectTimeout: 60000
-    },
-};
-module.exports = config;
-
-async function query(sql, params) {
-    const connection = await mysql.createConnection(config.db);
-    const [results, ] = await connection.execute(sql, params);
-  
-    return results;
-}
-
-module.exports = {
-    query
-}
-
-app.get('/', (req, res) => {
-    // try {
-    //     res.json(await programmingLanguages.getMultiple(req.query.page));
-    //   } catch (err) {
-    //     console.error(`Error while getting programming languages `, err.message);
-    //     next(err);
-    //   }
-    
-})
-
-app.listen(port, () => {
-    console.log(`Example app listening at http://localhost:${port}`);
+const db = mysql.createConnection({
+  host: 'localhost',
+  user: 'root',
+  password: 'root',
+  database: 'text_up',
 });
+
+db.connect((err) => {
+  if (err) {
+    console.error('Error connecting to MySQL:', err);
+    return;
+  }
+  console.log('Connected to MySQL database');
+});
+
+app.listen(PORT, () => {
+  console.log(`Server is running on http://localhost:${PORT}`);
+});
+
+// Get all posts
+app.get('/api/v1/articles/all', (req, res) => {
+    db.query('SELECT posts.id, posts.title, posts.texte, posts.created_at, users.nom as author_name FROM posts INNER JOIN users ON posts.author_id = users.id', (err, results) => {
+      if (err) throw err;
+      res.send(results);
+    });
+  });
+  
+  // Update a post
+  app.put('/api/v1/articles/modifier/:id', (req, res) => {
+    const { id } = req.params;
+    const { title, texte } = req.body;
+    db.query('UPDATE posts SET title = ?, texte = ? WHERE id = ?', [title, texte, id], (err) => {
+      if (err) throw res.json({ 
+        error: true,
+        message: 'la mise à jour a échoué',
+        data: [],
+      });
+      
+      res.json({ 
+        error: false,
+        message: 'Article mis à jour avec succès',
+        data: [],
+      });
+    });
+  });

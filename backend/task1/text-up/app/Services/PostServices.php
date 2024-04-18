@@ -2,6 +2,7 @@
 Namespace App\Services;
 
 use App\Models\Post;
+use App\Models\Tag;
 use Illuminate\Http\Request;
 
 class PostServices {
@@ -13,11 +14,13 @@ class PostServices {
 
     public function store (Request $request){
         // Création de posts
-        Post::create([
+        $article = Post::create([
             "title" => $request->title,
-            "text" => $request->text,
+            "texte" => $request->texte,
             "author_id" => request()->user()->id,
         ]);
+        $article->tags()->attach($request->tag_id);
+        return $article;
     }
 
     public function delete (Request $request){

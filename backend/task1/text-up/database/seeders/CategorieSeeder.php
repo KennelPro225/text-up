@@ -15,27 +15,27 @@ class CategorieSeeder extends Seeder
     public function run()
     {
         Categorie::create([
-            "libelle" => "Vêtements et accessoires"
+            "libelle" => "Langages de programmation"
         ]);
 
         Categorie::create([
-            "libelle" => "Électronique"
+            "libelle" => "Développement web"
         ]);
 
         Categorie::create([
-            "libelle" => "Meubles et décoration"
+            "libelle" => "Développement mobile"
         ]);
 
         Categorie::create([
-            "libelle" => "Bricolage et jardin"
+            "libelle" => "DevOps"
         ]);
 
         Categorie::create([
-            "libelle" => "Beauté et santé"
+            "libelle" => "Bases de données"
         ]);
 
         Categorie::create([
-            "libelle" => "Produits pour bébé et enfant"
+            "libelle" => "Cloud computing"
         ]);
     }
 }

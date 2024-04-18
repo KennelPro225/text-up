@@ -20,19 +20,22 @@ class Stats(Resource):
     cursor = mydb.cursor()
     cursor.execute("""
             SELECT
-            produits.nom,
-            COUNT(*) AS nb_commandes_produit
-            FROM post_tags
-            INNER JOIN produits
-            ON post_tags.id_post = posts.id AND 
-            GROUP BY EXTRACT(WEEK FROM commandes.created_at), produits.nom
-            ORDER BY nb_commandes_produit DESC
+                tags.libelle,
+                COUNT(*) AS nombre_articles
+            FROM
+                tags
+            INNER JOIN post_tag ON tags.id = post_tag.tag_id
+            GROUP BY
+                tags.libelle,
+                EXTRACT(WEEK FROM tags.created_at)
+            ORDER BY
+                nombre_articles DESC;
           """)
     data = cursor.fetchall()
     stats= []
     if len(data)!=0:
       for d in data:
-        stats.append({"article":d[0], "nombre_article_vendu":d[1]})
+        stats.append({"tag":d[0], "nombre_articles":d[1]})
     return jsonify({
       "error":False,
       "data": stats if len(stats)!=0 else []

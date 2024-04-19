@@ -21,7 +21,7 @@ class Stats(Resource):
     cursor.execute("""
             SELECT
                 tags.libelle,
-                COUNT(*) AS nombre_articles
+                COUNT(*) AS nombre_postes
             FROM
                 tags
             INNER JOIN post_tag ON tags.id = post_tag.tag_id
@@ -29,13 +29,13 @@ class Stats(Resource):
                 tags.libelle,
                 EXTRACT(WEEK FROM tags.created_at)
             ORDER BY
-                nombre_articles DESC;
+                nombre_postes DESC;
           """)
     data = cursor.fetchall()
     stats= []
     if len(data)!=0:
       for d in data:
-        stats.append({"tag":d[0], "nombre_articles":d[1]})
+        stats.append({"tag":d[0], "nombre_postes":d[1]})
     return jsonify({
       "error":False,
       "data": stats if len(stats)!=0 else []

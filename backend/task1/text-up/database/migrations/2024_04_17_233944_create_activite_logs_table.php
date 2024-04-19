@@ -23,31 +23,16 @@ class CreateActiviteLogsTable extends Migration
             $table->timestamps();
         });
 
-        DB::table('activite_logs')->statement("
-        CREATE TRIGGER posts_after_insert
-        AFTER INSERT ON posts
-        FOR EACH ROW
-        BEGIN
-            INSERT INTO activite_log (table_name, action, old_value, new_value)
-            VALUES ('posts', 'INSERT', NULL, CONCAT('Le titre du nouvel article est : ', NEW.title));
-        END;
-
-        CREATE TRIGGER posts_after_update
-        AFTER UPDATE ON posts
-        FOR EACH ROW
-        BEGIN
-            INSERT INTO activite_log (table_name, action, old_value, new_value)
-            VALUES ('posts', 'UPDATE', CONCAT('Ancienne valeur : ', OLD.title), CONCAT('Mise à jour faite : ', NEW.title));
-        END;
-
-        CREATE TRIGGER posts_after_delete
-        AFTER DELETE ON posts
-        FOR EACH ROW
-        BEGIN
-            INSERT INTO activite_log (table_name, action, old_value, new_value)
-            VALUES ('posts', 'DELETE', CONCAT('Client supprimé : ', OLD.Nom, ' ', OLD.Prénom), NULL);
-        END;
-        ");
+        DB::unprepared("
+            CREATE TRIGGER log_post_updates
+            AFTER UPDATE ON posts
+            FOR EACH ROW
+            BEGIN
+            INSERT INTO activite_logs (`table`, `action`, `old`, `new`, `created_at`)
+            VALUES ('posts', 'update', JSON_OBJECT('data', OLD.texte), JSON_OBJECT('data', NEW.texte), NOW());
+            END
+            "
+        );
     }
 
     /**

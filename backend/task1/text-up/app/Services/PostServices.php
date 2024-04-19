@@ -1,21 +1,25 @@
 <?php
-Namespace App\Services;
+
+namespace App\Services;
 
 use App\Models\Post;
 use App\Models\Tag;
 use Illuminate\Http\Request;
 
-class PostServices {
-    public function index (){
+class PostServices
+{
+    public function index()
+    {
         // Affichage de posts
         $posts = Post::get();
         return response()->success("la liste des articles", $posts);
     }
 
-    public function store (Request $request){
+    public function store(Request $request)
+    {
         // Création de posts
         $article = Post::create([
-            "title" => $request->title,
+            "titre" => $request->titre,
             "texte" => $request->texte,
             "author_id" => request()->user()->id,
         ]);
@@ -23,7 +27,19 @@ class PostServices {
         return $article;
     }
 
-    public function delete (Request $request){
+    public function update(Request $request)
+    {
+        // mise à jour de posts
+        $article = Post::find($request->id);
+        $article->update([
+            "titre" => $request->titre,
+            "texte" => $request->texte
+        ]);
+        return $article;
+    }
+
+    public function delete(Request $request)
+    {
         // suppression de posts
         $article = Post::find($request->id);
         $article->delete();

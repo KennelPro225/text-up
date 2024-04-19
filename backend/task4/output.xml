@@ -1,0 +1,230 @@
+<database>
+  <activite_logs/>
+  <categories>
+    <row>
+      <id>1</id>
+      <libelle>Langages de programmation</libelle>
+      <description>None</description>
+      <created_at>2024-04-18 09:21:43</created_at>
+      <updated_at>2024-04-18 09:21:43</updated_at>
+    </row>
+    <row>
+      <id>2</id>
+      <libelle>D&#233;veloppement web</libelle>
+      <description>None</description>
+      <created_at>2024-04-18 09:21:43</created_at>
+      <updated_at>2024-04-18 09:21:43</updated_at>
+    </row>
+    <row>
+      <id>3</id>
+      <libelle>D&#233;veloppement mobile</libelle>
+      <description>None</description>
+      <created_at>2024-04-18 09:21:43</created_at>
+      <updated_at>2024-04-18 09:21:43</updated_at>
+    </row>
+    <row>
+      <id>4</id>
+      <libelle>DevOps</libelle>
+      <description>None</description>
+      <created_at>2024-04-18 09:21:43</created_at>
+      <updated_at>2024-04-18 09:21:43</updated_at>
+    </row>
+    <row>
+      <id>5</id>
+      <libelle>Bases de donn&#233;es</libelle>
+      <description>None</description>
+      <created_at>2024-04-18 09:21:43</created_at>
+      <updated_at>2024-04-18 09:21:43</updated_at>
+    </row>
+    <row>
+      <id>6</id>
+      <libelle>Cloud computing</libelle>
+      <description>None</description>
+      <created_at>2024-04-18 09:21:43</created_at>
+      <updated_at>2024-04-18 09:21:43</updated_at>
+    </row>
+  </categories>
+  <post_tag>
+    <row>
+      <id>18</id>
+      <post_id>18</post_id>
+      <tag_id>3</tag_id>
+      <created_at>None</created_at>
+      <updated_at>None</updated_at>
+    </row>
+    <row>
+      <id>19</id>
+      <post_id>19</post_id>
+      <tag_id>3</tag_id>
+      <created_at>None</created_at>
+      <updated_at>None</updated_at>
+    </row>
+    <row>
+      <id>20</id>
+      <post_id>20</post_id>
+      <tag_id>3</tag_id>
+      <created_at>None</created_at>
+      <updated_at>None</updated_at>
+    </row>
+    <row>
+      <id>21</id>
+      <post_id>21</post_id>
+      <tag_id>3</tag_id>
+      <created_at>None</created_at>
+      <updated_at>None</updated_at>
+    </row>
+    <row>
+      <id>22</id>
+      <post_id>22</post_id>
+      <tag_id>3</tag_id>
+      <created_at>None</created_at>
+      <updated_at>None</updated_at>
+    </row>
+    <row>
+      <id>23</id>
+      <post_id>23</post_id>
+      <tag_id>3</tag_id>
+      <created_at>None</created_at>
+      <updated_at>None</updated_at>
+    </row>
+    <row>
+      <id>24</id>
+      <post_id>24</post_id>
+      <tag_id>1</tag_id>
+      <created_at>None</created_at>
+      <updated_at>None</updated_at>
+    </row>
+    <row>
+      <id>25</id>
+      <post_id>25</post_id>
+      <tag_id>1</tag_id>
+      <created_at>None</created_at>
+      <updated_at>None</updated_at>
+    </row>
+    <row>
+      <id>26</id>
+      <post_id>26</post_id>
+      <tag_id>2</tag_id>
+      <created_at>None</created_at>
+      <updated_at>None</updated_at>
+    </row>
+    <row>
+      <id>27</id>
+      <post_id>27</post_id>
+      <tag_id>2</tag_id>
+      <created_at>None</created_at>
+      <updated_at>None</updated_at>
+    </row>
+    <row>
+      <id>28</id>
+      <post_id>28</post_id>
+      <tag_id>4</tag_id>
+      <created_at>None</created_at>
+      <updated_at>None</updated_at>
+    </row>
+    <row>
+      <id>29</id>
+      <post_id>29</post_id>
+      <tag_id>4</tag_id>
+      <created_at>None</created_at>
+      <updated_at>None</updated_at>
+    </row>
+    <row>
+      <id>30</id>
+      <post_id>30</post_id>
+      <tag_id>5</tag_id>
+      <created_at>None</created_at>
+      <updated_at>None</updated_at>
+    </row>
+    <row>
+      <id>31</id>
+      <post_id>31</post_id>
+      <tag_id>5</tag_id>
+      <created_at>None</created_at>
+      <updated_at>None</updated_at>
+    </row>
+    <row>
+      <id>32</id>
+      <post_id>32</post_id>
+      <tag_id>5</tag_id>
+      <created_at>None</created_at>
+      <updated_at>None</updated_at>
+    </row>
+  </post_tag>
+  <tags>
+    <row>
+      <id>1</id>
+      <categorie_id>1</categorie_id>
+      <libelle>Python</libelle>
+      <created_at>2024-04-18 09:21:43</created_at>
+      <updated_at>2024-04-18 09:21:43</updated_at>
+    </row>
+    <row>
+      <id>2</id>
+      <categorie_id>1</categorie_id>
+      <libelle>Javascript</libelle>
+      <created_at>2024-04-18 09:21:43</created_at>
+      <updated_at>2024-04-18 09:21:43</updated_at>
+    </row>
+    <row>
+      <id>3</id>
+      <categorie_id>1</categorie_id>
+      <libelle>PHP</libelle>
+      <created_at>2024-04-18 09:21:43</created_at>
+      <updated_at>2024-04-18 09:21:43</updated_at>
+    </row>
+    <row>
+      <id>4</id>
+      <categorie_id>1</categorie_id>
+      <libelle>JAVA</libelle>
+      <created_at>2024-04-18 09:21:43</created_at>
+      <updated_at>2024-04-18 09:21:43</updated_at>
+    </row>
+    <row>
+      <id>5</id>
+      <categorie_id>1</categorie_id>
+      <libelle>C++</libelle>
+      <created_at>2024-04-18 09:21:43</created_at>
+      <updated_at>2024-04-18 09:21:43</updated_at>
+    </row>
+    <row>
+      <id>6</id>
+      <categorie_id>1</categorie_id>
+      <libelle>C#</libelle>
+      <created_at>2024-04-18 09:21:43</created_at>
+      <updated_at>2024-04-18 09:21:43</updated_at>
+    </row>
+    <row>
+      <id>7</id>
+      <categorie_id>2</categorie_id>
+      <libelle>Front-end</libelle>
+      <created_at>2024-04-18 09:21:43</created_at>
+      <updated_at>2024-04-18 09:21:43</updated_at>
+    </row>
+    <row>
+      <id>8</id>
+      <categorie_id>2</categorie_id>
+      <libelle>Back-end</libelle>
+      <created_at>2024-04-18 09:21:43</created_at>
+      <updated_at>2024-04-18 09:21:43</updated_at>
+    </row>
+    <row>
+      <id>9</id>
+      <categorie_id>2</categorie_id>
+      <libelle>E-commerce</libelle>
+      <created_at>2024-04-18 09:21:43</created_at>
+      <updated_at>2024-04-18 09:21:43</updated_at>
+    </row>
+  </tags>
+  <users>
+    <row>
+      <id>1</id>
+      <nom>KASSI</nom>
+      <prenoms>KENNEL</prenoms>
+      <email>kennel@email.com</email>
+      <password>$2y$10$OnXsbMuGraHJORzmhw2sOuMmTGGTp4JhdWKY.v2gISfnD2Smt68Tu</password>
+      <created_at>2024-04-18 09:21:49</created_at>
+      <updated_at>2024-04-18 09:21:49</updated_at>
+    </row>
+  </users>
+</database>
